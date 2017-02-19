@@ -62,124 +62,119 @@ $("#datepicker").datepicker("option", "dateFormat", $(this).val());
 	
     
     <!--BRETTT-->
-    <div style="font-size:12px; position:fixed; height: width:199px; left:10px; bottom: 23px; backgroud: rgba(2,153,255,1.00); color:rgba(255,255,255,1.00); z-index:1; background: rgba(255,153,255,1.00 );"> Set Prefrences
-    	<div><form action=""><input type="checkbox"> Music
-        </input>
-	</form>
-    <form action=""><input type="checkbox"> Food & Drinks
-        </input>
-	</form>
-    <form action=""><input type="checkbox"> Sporting Events
-        </input>
-
-	</form>
-    <form action=""><input type="checkbox"> Outdoor
-        </input>
-	</form>
-    <form action=""><input type="checkbox"> Health & Fitness
-        </input>
-	</form>
-    <form action=""><input type="checkbox"> Family Friendly
-        </input>
-	</form>
-    <form action=""><input type="checkbox"> Retail
-        </input>
-	</form>
-    <form action=""><input type="checkbox"> Performing Arts
-        </input>
-	</form>
-    <form action=""><input type="checkbox"> Entertainment
-        </input>
-	</form>
-    
-    </div>	
-    
-    </div>
     
     <input class="searchbox" id="pac-input"; type="text" placeholder="Surch" style="margin-top: 10px; border: 1px solid trasparent; height:30px; box-shadow: rgba(0,0,0,.289039) 0px 2px 6px; padding:0px 11px 0px 13px; width:313px; font-size:13px; font-weight: 300; z-index:1; position:absolute; left:121px; top:0px;"></input>
     
-    
-    <div style ="font-size: 12px; position: absolute; height:80%;  border: 1px solid trasparent; color:rgba(255,255,255,1.00); top: 10px; right: 10px; bottom: 30px; width: auto; z-index: 1; padding: 7px; border-radius: 2px; background: rgba(255,153,255,1.00 );">
-  <div style="margin-bottom: 7px; font-size: 10px;"><input type ="text" placeholder="Event Name" style="padding:7px; height:23px; width:92%";></input>
-  </div>
-  <div style="margin-bottom:7px; font-size: 12px;"><input type = "text" placeholder = "Event Type" style = "padding:7px; height:23px; width: 92%"></input>
-  </div>
-  <div style="margin-bottom:7px; font-size: 10px; "><input type = "text" placeholder = "Event Sponsor" style = "padding:7px; height:23px;  width: 92%;"></input>
-  </div>
+	<form action="eventPush.php" method="post">
+		<div style ="font-size: 12px; position: absolute; height:80%;  border: 1px solid trasparent; color:rgba(255,255,255,1.00); top: 10px; right: 10px; bottom: 30px; width: auto; z-index: 1; padding: 7px; border-radius: 2px; background: rgba(255,153,255,1.00 );">
+
+		<div style="margin-bottom: 7px; font-size: 10px;"><input type ="text" placeholder="Event Name" name="eventname" style="padding:7px; height:23px; width:92%";></input>
+		</div>
+		<div style="margin-bottom:7px; font-size: 12px;"><input type = "text" placeholder = "Event Type" style = "padding:7px; height:23px; width: 92%"></input>
+		</div>
+		<div style="margin-bottom:7px; font-size: 10px; "><input type = "text" placeholder = "Event Sponsor" name="eventsponsor" style = "padding:7px; height:23px;  width: 92%;"></input>
+		</div>
   <!-- OLD DATE <div style="margin-bottom:7px; font-size: 10px;"><input type = "text" placeholder = "Date" style = "padding:7px;  width: 92%;"></input></div> -->
-  <div style="margin-botton:7px; font-size:10px;"><input type="text" id="datepicker" placeholder="Date" style="padding: 7px; height:23px; width:92%;"></input></div>
-  <br>
-  <div><button type="Set prefrences"; style= "margin-top: 3px; paddig-botton:1px; width:100%; border:hidden; color: rgba(255,255, 255,1.00 ); background: rgba(255,153,255,1.00 );"> &#8656    Set Prefrences</button>
-</div>   
+		<div style="margin-botton:7px; font-size:10px;"><input type="text" id="datepicker" placeholder="Date" name="datepicker" style="padding: 7px; height:23px; width:92%;"></input></div>
+		<br>
+		<div><button type="Set prefrences"; style= "margin-top: 3px; paddig-botton:1px; width:100%; border:hidden; color: rgba(255,255, 255,1.00 ); background: rgba(255,153,255,1.00 );"> &#8656    Set Prefrences</button>
+		</div>   
   
-  <div style=" width: 92%; text-align:center; margin-botton:7px; padding:7px;"> Start Time  <select>
-  		<option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-  </select>
+		<div style=" width: 92%; text-align:center; margin-botton:7px; padding:7px;"> Start Time  <select name="starthour">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+		</select>
 
- <select>
-  		<option value="00">00</option>
-  		<option value="15">15</option>
-        <option value="30">30</option>
-        <option value="45">45</option>
-</select>
+		<select name="startminute">
+			<option value="00">00</option>
+			<option value="15">15</option>
+			<option value="30">30</option>
+			<option value="45">45</option>
+		</select>
 
-<select>
-  		<option value="am">am</option>
-  		<option value="pm">pm</option>
-</select></div>
+		<select name="startmeridiem">
+			<option value="am">am</option>
+			<option value="pm">pm</option>
+		</select></div>
 
 
-<div style="margin-botton:7px;  text-align:center; width: 92%; padding: 7px; ">End Time  
-<select>
-  		<option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-  </select>
+		<div style="margin-botton:7px;  text-align:center; width: 92%; padding: 7px; ">End Time  
+		<select name="endhour">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+		</select>
   
-  <select>
-  		<option value="00">00</option>
-  		<option value="15">15</option>
-        <option value="30">30</option>
-        <option value="45">45</option>
-  </select>  
+		<select name="endminute">
+			<option value="00">00</option>
+			<option value="15">15</option>
+			<option value="30">30</option>
+			<option value="45">45</option>
+		</select>  
   
-  <select>
-  		<option value="am">am</option>
-  		<option value="pm">pm</option>
-</select>  
-  </div>
+		<select name="endmeridiem">
+			<option value="am">am</option>
+			<option value="pm">pm</option>
+		</select>  
+		</div>
 
-  <div style="margin-bottom:7px; font-size: 10px; color: rgba(243,144,146,1.00)"><textarea placeholder = "Event Description" style = "padding:7px; width: 92%; resize:none; rows:7;"></textarea></div>
+		<div style="margin-bottom:7px; font-size: 10px; color: rgba(243,144,146,1.00)"><textarea placeholder = "Event Description" name="eventdescription" style = "padding:7px; width: 92%; resize:none; rows:7;"></textarea></div>
 
-  <div style="margin-bottom:7px; font-size: 10px;  color: rgba(255,255,255,1.00);"><input type = "text" placeholder = "Upload " style = "padding:7px;  width: 46%;"></input>
-  <button type="button"; style="padding-top: 1px; paddig-botton:1px; width:42%; border:hiddene; border-width:1px; color: rgba(255,255, 255,1.00 ); background: rgba(255,153,255,1.00 ); ">Browse..</button>
-</div>
-<div style="text-align:center;"><form action=""><input type="checkbox">I agree to the Terms & Conditions
-</input>
-</form></div>
-<br><br>
-<div><button type="Create Event"; style= "padding-top: 1px; paddig-botton:1px; width:100%; border:hidden; color: rgba(255,255, 255,1.00 ); background: rgba(255,153,255,1.00 );">Create Event</button>   
-</div>    
-    <!--END BRETT-->
-    </div>
+		<div style="margin-bottom:7px; font-size: 10px;  color: rgba(255,255,255,1.00);"><input type = "text" placeholder = "Upload " style = "padding:7px;  width: 46%;"></input>
+		<div style="margin-bottom:7px; font-size: 10px;  color: rgba(255,255,255,1.00);">
+			<div><input type="checkbox"> Music
+    </input></div>
+	<div><input type="checkbox"> Food & Drinks
+        </input></div>
+	<div><input type="checkbox"> Sporting Events
+        </input></div>
+	<div><input type="checkbox"> Outdoor
+        </input></div>
+	<div><input type="checkbox"> Health & Fitness
+        </input></div>
+	<div><input type="checkbox"> Family Friendly
+        </input></div>
+	<div><input type="checkbox"> Retail
+        </input></div>
+	<div><input type="checkbox"> Performing Arts
+        </input></div>
+	<div><input type="checkbox"> Entertainment
+        </input></div>
+		</div>
+		<div><input type="text" name="long" value="long">
+		</div>
+		<div><input type="text" name="lat" value="lat">
+		</div>
+		<button type="button"; style="padding-top: 1px; paddig-botton:1px; width:42%; border:hiddene; border-width:1px; color: rgba(255,255, 255,1.00 ); background: rgba(255,153,255,1.00 ); ">Browse..</button>
+		</div>
+		<div style="text-align:center;"><form action=""><input type="checkbox">I agree to the Terms & Conditions
+		</input>
+		</form></div>
+		<br><br>
+		<div><button type="submit"; style= "padding-top: 1px; paddig-botton:1px; width:100%; color: rgba(255,255, 255,1.00 ); background: rgba(255,153,255,1.00 );">Create Event</button>   
+		</div>    
+		<!--END BRETT-->
+		</div>
+	</form>
   	<div id="map"></div>
     <script>
       // This example adds a search box to a map, using the Google Place Autocomplete

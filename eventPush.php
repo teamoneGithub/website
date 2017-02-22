@@ -1,18 +1,19 @@
 <?php
 	$eventName = strip_tags($_POST['eventname']);
 	$eventSponsor = strip_tags($_POST['eventsponsor']);
-	$eventdescription = strip_tags($_POST['eventdescription']);
-	$datepicker = strip_tags($_POST['datepicker']);
-	$starthour = strip_tags($_POST['starthour']);
-	$startminute = strip_tags($_POST['startminute']);
-	$startmeridiem = strip_tags($_POST['startmeridiem']);
-	$endhour = strip_tags($_POST['endhour']);
-	$endminute = strip_tags($_POST['endminute']);
-	$endmeridiem = strip_tags($_POST['endmeridiem']);
+	$eventDescription = strip_tags($_POST['eventdescription']);
+	$datePicker = strip_tags($_POST['datepicker']);
+	$startHour = strip_tags($_POST['starthour']);
+	$startMinute = strip_tags($_POST['startminute']);
+	$startMeridiem = strip_tags($_POST['startmeridiem']);
+	$endHour = strip_tags($_POST['endhour']);
+	$endMinute = strip_tags($_POST['endminute']);
+	$endMeridiem = strip_tags($_POST['endmeridiem']);
+	$eventLocation strip_tags($_POST['eventlocation'])
 	
 	# Only accept one preference for now
- 
-	$sql = # create query that would add the event
+	$dbCon = mysqli_connect("athena.ecs.csus.edu","teamone_user","teamone_db","teamone");
+	$sql = INSERT INTO events(event_id, $eventName, $eventlocation, $preferenceId, $eventSponsor, $datePicker, $datePicker, $startTime, $endTime, $eventDescription, $eventCost, $eventAge) 
 
 	$query = mysqli_query($dbCon, $sql);
 

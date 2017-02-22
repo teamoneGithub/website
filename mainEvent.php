@@ -63,11 +63,13 @@ $("#datepicker").datepicker("option", "dateFormat", $(this).val());
     
     <!--BRETTT-->
     
-    <input class="searchbox" id="pac-input"; type="text" placeholder="Surch" style="margin-top: 10px; border: 1px solid trasparent; height:30px; box-shadow: rgba(0,0,0,.289039) 0px 2px 6px; padding:0px 11px 0px 13px; width:313px; font-size:13px; font-weight: 300; z-index:1; position:absolute; left:121px; top:0px;"></input>
+    
     
 	<form action="eventPush.php" method="post">
 		<div style ="font-size: 12px; position: absolute; height:80%;  border: 1px solid trasparent; color:rgba(255,255,255,1.00); top: 10px; right: 10px; bottom: 30px; width: auto; z-index: 1; padding: 7px; border-radius: 2px; background: rgba(255,153,255,1.00 );">
-
+		
+		<input class="searchbox" name="eventlocation" id="pac-input"; type="text" placeholder="Surch" style="margin-top: 10px; border: 1px solid trasparent; height:30px; box-shadow: rgba(0,0,0,.289039) 0px 2px 6px; padding:0px 11px 0px 13px; width:313px; font-size:13px; font-weight: 300; z-index:1; position:absolute; left:121px; top:0px;"></input>
+		
 		<div style="margin-bottom: 7px; font-size: 10px;"><input type ="text" placeholder="Event Name" name="eventname" style="padding:7px; height:23px; width:92%";></input>
 		</div>
 		<div style="margin-bottom:7px; font-size: 12px;"><input type = "text" placeholder = "Event Type" style = "padding:7px; height:23px; width: 92%"></input>
@@ -174,6 +176,7 @@ $("#datepicker").datepicker("option", "dateFormat", $(this).val());
 		</div>    
 		<!--END BRETT-->
 		</div>
+		<div></div>
 	</form>
   	<div id="map"></div>
     <script>

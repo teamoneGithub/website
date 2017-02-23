@@ -58,6 +58,7 @@ $("#datepicker").datepicker("option", "dateFormat", $(this).val());
   </ul>
 </nav> 
   </header>
+<form action="eventPush.php" method="POST">
 <div class= "herro" id="herro" style="width: 100%; height: 100%; position: absolute;";>
 	
     
@@ -65,10 +66,12 @@ $("#datepicker").datepicker("option", "dateFormat", $(this).val());
     
     
     
-	<form action="eventPush.php" method="post">
+	
 		<div style ="font-size: 12px; position: absolute; height:80%;  border: 1px solid trasparent; color:rgba(255,255,255,1.00); top: 10px; right: 10px; bottom: 30px; width: auto; z-index: 1; padding: 7px; border-radius: 2px; background: rgba(255,153,255,1.00 );">
+		<div><input type="label" name="eventlocation2" style="margin-top: 10px; border: 1px solid trasparent; height:30px; box-shadow: rgba(0,0,0,.289039) 0px 2px 6px; padding:0px 11px 0px 13px; width:313px; font-size:13px; font-weight: 300; z-index:1; position:absolute; left:121px; top:0px;"> </input>
+		</div>
 		
-		<input class="searchbox" name="eventlocation" id="pac-input"; type="text" placeholder="Surch" style="margin-top: 10px; border: 1px solid trasparent; height:30px; box-shadow: rgba(0,0,0,.289039) 0px 2px 6px; padding:0px 11px 0px 13px; width:313px; font-size:13px; font-weight: 300; z-index:1; position:absolute; left:121px; top:0px;"></input>
+		<div><input name="eventlocation"; class="searchbox"; id="pac-input"; type="text" placeholder="Surch" style="margin-top: 10px; border: 1px solid trasparent; height:30px; box-shadow: rgba(0,0,0,.289039) 0px 2px 6px; padding:0px 11px 0px 13px; width:313px; font-size:13px; font-weight: 300; z-index:1; position:absolute; left:121px; top:0px;"></input></div>
 		
 		<div style="margin-bottom: 7px; font-size: 10px;"><input type ="text" placeholder="Event Name" name="eventname" style="padding:7px; height:23px; width:92%";></input>
 		</div>
@@ -143,24 +146,24 @@ $("#datepicker").datepicker("option", "dateFormat", $(this).val());
 
 		<div style="margin-bottom:7px; font-size: 10px;  color: rgba(255,255,255,1.00);"><input type = "text" placeholder = "Upload " style = "padding:7px;  width: 46%;"></input>
 		<div style="margin-bottom:7px; font-size: 10px;  color: rgba(255,255,255,1.00);">
-			<div><input type="checkbox"> Music
-    </input></div>
-	<div><input type="checkbox"> Food & Drinks
-        </input></div>
-	<div><input type="checkbox"> Sporting Events
-        </input></div>
-	<div><input type="checkbox"> Outdoor
-        </input></div>
-	<div><input type="checkbox"> Health & Fitness
-        </input></div>
-	<div><input type="checkbox"> Family Friendly
-        </input></div>
-	<div><input type="checkbox"> Retail
-        </input></div>
-	<div><input type="checkbox"> Performing Arts
-        </input></div>
-	<div><input type="checkbox"> Entertainment
-        </input></div>
+		<input type="checkbox" value="1" name="eventPreferences[]"> Music
+		</input></br>
+		<input type="checkbox" value="2" name="eventPreferences[]"> Food & Drinks
+        </input></br>
+		<input type="checkbox" value="3" name="eventPreferences[]"> Sporting Events
+        </input></br>
+		<input type="checkbox" value="4" name="eventPreferences[]"> Outdoor
+        </input></br>
+		<input type="checkbox" value="5" name="eventPreferences[]"> Health & Fitness
+        </input></br>
+		<input type="checkbox" value="6" name="eventPreferences[]"> Family Friendly
+        </input></br>
+		<input type="checkbox" value="7" name="eventPreferences[]"> Retail
+        </input></br>
+		<input type="checkbox" value="8" name="eventPreferences[]"> Performing Arts
+        </input></br>
+		<input type="checkbox" value="9" name="eventPreferences[]"> Entertainment
+        </input></br>
 		</div>
 		<div><input type="text" name="long" value="long">
 		</div>
@@ -177,7 +180,7 @@ $("#datepicker").datepicker("option", "dateFormat", $(this).val());
 		<!--END BRETT-->
 		</div>
 		<div></div>
-	</form>
+	
   	<div id="map"></div>
     <script>
       // This example adds a search box to a map, using the Google Place Autocomplete
@@ -258,6 +261,7 @@ $("#datepicker").datepicker("option", "dateFormat", $(this).val());
     </script>	
 	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkAik0mFJzy4vTrOP4IyfIGcO6vdX1odY&libraries=places&callback=initAutocomplete"async defer></script>
 </div>
+</form>
 </div>
 </body>
 </html>

@@ -18,9 +18,9 @@
 	
 	# Only accept one preference for now
 	$dbCon = mysqli_connect("athena.ecs.csus.edu","teamone_user","teamone_db","teamone");
-	$sql = "INSERT INTO events(event_id, " . $eventName . ", " . $eventLocation . ", " . $eventPreferences[0] . ", " . $eventSponsor . ", " . $datePicker . ", " . $datePicker . ", " . $startTime . ", " . $endTime . ", " . $eventDescription  . ", " . $eventCost . ", " . $eventAge . ")"; 
-	
-//	echo "<!doctype html><html>" +$eventName;
+	$sql = "INSERT INTO events(event_id,event_name,event_location,preference_id)Values(	200, " . $eventName . ", " . $eventLocation . ", " . $eventPreferences[0] . ");"/* . $eventSponsor . ", " . $datePicker . ", " . $datePicker . ", " . $startTime . ", " . $endTime . ", " . $eventDescription  . ", " . $eventCost . ", " . $eventAge . ")"*/; 
+	$sql = "insert into events(event_id, event_name, event_location, preference_id, img_path, event_sponsor, start_date, start_time, event_description, event_cost, event_age)values(578, '" . $eventName . "', '" . $eventLocation . "', " . $eventPreferences[0] . " , 'music4.jpg', '" . $eventSponsor . "', '" . $datePicker . "', '" . $startHour . ":" . $startMinute . "00" . "', '" . $eventDescription . "', 10.20, 21);";
+	echo "<!doctype html><html>";
 //	echo ($_POST['eventname']);
 //	echo ($_POST['eventsponsor']);
 //	echo ($_POST['eventdescription']);
@@ -32,15 +32,15 @@
 //	echo ($_POST['endminute']);
 //	echo ($_POST['endmeridiem']);
 //	echo ($_POST['eventlocation']);
-//	echo $sql = "INSERT INTO events(event_id, "+($_POST['eventname'])+", "+($_POST['eventlocation'])+", "+ /*$preferenceId+", "+*/($_POST['eventsponsor'])+", "+($_POST['datepicker'])+", "+($_POST['datepicker'])+", "+$startTime+", "+$endTime+", "+($_POST['eventdescription']) /*+", "+$eventCost+", "+$eventAge*/+")"; 
-//	echo $sql;
+//	echo $sql = "INSERT INTO events(12254863, "+($_POST['eventname'])+", "+($_POST['eventlocation'])+", "+ /*$preferenceId+", "+*/($_POST['eventsponsor'])+", "+($_POST['datepicker'])+", "+($_POST['datepicker'])+", "+$startTime+", "+$endTime+", "+($_POST['eventdescription']) /*+", "+$eventCost+", "+$eventAge*/+")"; 
+	echo $sql;
 //	echo count($eventPreferences);
 //	echo $eventPreferences[0];
 	$query = mysqli_query($dbCon, $sql);
-
+	
 	if ($query) {
-		# bring up event preview page
+		echo "passed";
 	} else {
-		# Error posting event
+		echo "failed";
 	}
 ?>

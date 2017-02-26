@@ -68,7 +68,7 @@ $("#datepicker").datepicker("option", "dateFormat", $(this).val());
     
 	
 		<div style ="font-size: 12px; position: absolute; height:80%;  border: 1px solid trasparent; color:rgba(255,255,255,1.00); top: 10px; right: 10px; bottom: 30px; width: auto; z-index: 1; padding: 7px; border-radius: 2px; background: rgba(255,153,255,1.00 );">
-		<div><input type="label" name="eventlocation2" style="margin-top: 10px; border: 1px solid trasparent; height:30px; box-shadow: rgba(0,0,0,.289039) 0px 2px 6px; padding:0px 11px 0px 13px; width:313px; font-size:13px; font-weight: 300; z-index:1; position:absolute; left:121px; top:0px;"> </input>
+		<div>
 		</div>
 		
 		<div><input name="eventlocation"; class="searchbox"; id="pac-input"; type="text" placeholder="Surch" style="margin-top: 10px; border: 1px solid trasparent; height:30px; box-shadow: rgba(0,0,0,.289039) 0px 2px 6px; padding:0px 11px 0px 13px; width:313px; font-size:13px; font-weight: 300; z-index:1; position:absolute; left:121px; top:0px;"></input></div>
@@ -145,6 +145,8 @@ $("#datepicker").datepicker("option", "dateFormat", $(this).val());
 		<div style="margin-bottom:7px; font-size: 10px; color: rgba(243,144,146,1.00)"><textarea placeholder = "Event Description" name="eventdescription" style = "padding:7px; width: 92%; resize:none; rows:7;"></textarea></div>
 
 		<div style="margin-bottom:7px; font-size: 10px;  color: rgba(255,255,255,1.00);"><input type = "text" placeholder = "Upload " style = "padding:7px;  width: 46%;"></input>
+		<input name ="21+" type="checkbox">21+</input>
+		<input name ="18+" type="checkbox">18+</input>
 		<div style="margin-bottom:7px; font-size: 10px;  color: rgba(255,255,255,1.00);">
 		<input type="checkbox" value="1" name="eventPreferences[]"> Music
 		</input></br>

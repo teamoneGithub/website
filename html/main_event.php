@@ -2,10 +2,10 @@
   ini_set('display_errors', 1);
   include_once ('php/check_login.php');
   include_once ('php/init_facebook_php_sdk.php');
-/*
-	header('Access-Control-Allow_Origin: *');
+  /*
+  $connection = include_once("connection.php");
 	error_reporting(E_ALL & E_NOTICE);
-	session_start();
+	//session_start();
 	$connection = include_once("connection.php");
 	
 	$eventName = isset($_POST['eventname']) ? $_POST['eventname'] : '';
@@ -25,28 +25,24 @@
 	
 	$eventCost = 3.00;
 	$eventAge = 21;
-	
+
 	//$eventPreferences=isset($_POST['eventpreferences']) ? $_POST['eventpreferences'] : '';
 	
-	echo $eventName . "\n" . $eventSponsor . "\n" . $eventDescription . "\n" . $datePicker . "\n" .
-	 $startHour . "\n" . $startMinute . "\n". $startMeridiem . "\n" . $endHour . "\n" .
-	 $endMinute . "\n" . $endMeridiem . "\n" . $eventLocation . "\n" . $eventPreferences . "\n";
-	
-	if ($eventName && $eventSponsor && $eventDescription && $datePicker && 
-		$startTime && $endTime && $eventLocation) {
-		echo 'yah';
-		$sql = "INSERT IGNORE INTO events(event_id, event_name, event_location, preference_id, img_path, event_sponsor, start_date, end_date, start_time, end_time, event_description, event_cost, event_age)
-				VALUES(578, $eventName, $eventLocation, 0, music4.jpg, $eventSponsor, $datePicker, NULL, $startTime, $endTime, $eventDescription, 10.20, 21)";
-		echo $sql;
+	//echo $eventName . "\n" . $eventSponsor . "\n" . $eventDescription . "\n" . $datePicker . "\n" .
+	 //$startHour . "\n" . $startMinute . "\n". $startMeridiem . "\n" . $endHour . "\n" .
+	 //$endMinute . "\n" . $endMeridiem . "\n" . $eventLocation . "\n" ;// $eventPreferences . "\n";
+		$sql = "INSERT IGNORE INTO events(event_id, event_name, event_location, preference_id, img_path, event_sponsor, start_date,start_time,event_description, event_cost, event_age)
+				VALUES('600', 'eventFromWebsite', $eventLocation, 1, 'music4.jpg', 'teamone', '2017-03-01', '03:30:00', $eventDescription, 10.20, 21)";
+		//echo $sql;
 
-		$query = mysqli_query($dbCon, $sql);
+		//$query = mysqli_query($dbCon, $sql);
 		
-		if ($query) {
-			echo "passed";
-		} else {
-			echo $query;
+		if (mysqli_query($dbCon, $sql)){
+			echo 'passed';
 		}
-	}
+		else{
+			echo mysql_error($dbCon);
+		}
 */
 ?>
 <!doctype html>
@@ -61,6 +57,7 @@
  
  <!--calendar brett-->
  <link href="css/coolStyle.css" rel="stylesheet" type="text/css">
+  <link href="css/listStyle.css" rel="stylesheet" type="text/css">
  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
@@ -69,6 +66,7 @@
 <title>Event Creation</title>
 <style>
  #map {
+		z-index:8;
         height: 100%;
 		width: 100%;
       }
@@ -94,16 +92,16 @@ $("#datepicker").datepicker("option", "dateFormat", $(this).val());
 </head>
 
 <body><!-- main container-->
-<div class = "container"> 
-<header>
+<div class = "container"> <!--main containter class-->
+<header><!--Header start -->
 <a href="">
 <h4 class="logo">LIV</h4>
 </a>
 <nav>
 <ul>
-    <li><a href="index.php">HOME</a></li>
-    <li> <a href="about.php">ABOUT</a></li>
-	<li> <a href="contact.php">CONTACT</a></li>
+	<li><a href="index.php">HOME</a></li>
+	<li><a href="about.php">ABOUT</a></li>
+	<li><a href="contact.php">CONTACT</a></li>
 	<li> <a href="manage.php">MANAGE</a></li>
 	<?php
 	  if (isset($_SESSION['facebook_access_token'])) {
@@ -112,38 +110,30 @@ $("#datepicker").datepicker("option", "dateFormat", $(this).val());
 	  } else {
 		 echo '<li><a href="php/login.php">LOG IN</a></li>';
 	  }
-	?>
+	?> 
   </ul>
 </nav> 
-  </header>
-<form action="<?php $_PHP_SELF ?>" method="POST">
-<div class= "herro" id="herro" style="width: 100%; height: 100%; position: absolute;";>
-	
+  </header> <!-- Header end-->
+<form action="php/eventPush.php" method="POST"><!--Push Form-->
+<div class= "herro" id="herro" style="width: 100%; height: 100%; position: absolute;"><!--Hero Class -->
     
-    <!--BRETTT-->
-    
-    
-    
-	
-		<div style ="font-size: 12px; position: absolute; height:80%;  border: 1px solid trasparent; color:rgba(255,255,255,1.00); top: 10px; right: 10px; bottom: 30px; width: auto; z-index: 1; padding: 7px; border-radius: 2px; background: rgba(255,153,255,1.00 );">
-		<div>
-		</div>
+    <!--Right Floating Event Info Div-->
+		<div style ="font-size: 12px; position: absolute; height:auto; max-height:900px; min-height:700px; border: 1px solid trasparent; color:rgba(255,255,255,1.00); top: 10px; right: 10px; bottom: 30px; width: auto; z-index: 10; padding: 7px; border-radius: 2px; background: rgba(255,153,255,1.00 );">
 		
-		<div><input name="eventlocation"; class="searchbox"; id="pac-input"; type="text" placeholder="Surch" style="margin-top: 10px; border: 1px solid trasparent; height:30px; box-shadow: rgba(0,0,0,.289039) 0px 2px 6px; padding:0px 11px 0px 13px; width:313px; font-size:13px; font-weight: 300; z-index:1; position:absolute; left:121px; top:0px;"></input></div>
+        <!--floating Search Box-->
+		<div><input name="eventlocation"; class="searchbox"; id="pac-input"; type="text" placeholder="Search" style="margin-top: 10px; border: 1px solid trasparent; height:30px; box-shadow: rgba(0,0,0,.289039) 0px 2px 6px; padding:0px 11px 0px 13px; width:313px; font-size:13px; font-weight: 300; z-index:10; position:absolute; left:121px; top:0px;"></input></div>
 		
-		<div style="margin-bottom: 7px; font-size: 10px;"><input type ="text" placeholder="Event Name" name="eventname" style="padding:7px; height:23px; width:92%";></input>
+		<div style="margin-bottom: 4px; font-size: 10px;"><input type ="text" placeholder="Event Name" name="eventname" style="padding:7px; height:23px; width:92%";></input>
 		</div>
-		<div style="margin-bottom:7px; font-size: 12px;"><input type = "text" placeholder = "Event Type" style = "padding:7px; height:23px; width: 92%"></input>
+		<div style="margin-bottom:4px; font-size: 12px;"><input type = "text" placeholder = "Event Type" style = "padding:7px; height:23px; width: 92%"></input>
 		</div>
-		<div style="margin-bottom:7px; font-size: 10px; "><input type = "text" placeholder = "Event Sponsor" name="eventsponsor" style = "padding:7px; height:23px;  width: 92%;"></input>
+		<div style="margin-bottom:4px; font-size: 10px; "><input type = "text" placeholder = "Event Sponsor" name="eventsponsor" style = "padding:7px; height:23px;  width: 92%;"></input>
 		</div>
-  <!-- OLD DATE <div style="margin-bottom:7px; font-size: 10px;"><input type = "text" placeholder = "Date" style = "padding:7px;  width: 92%;"></input></div> -->
-		<div style="margin-botton:7px; font-size:10px;"><input type="text" id="datepicker" placeholder="Date" name="datepicker" style="padding: 7px; height:23px; width:92%;"></input></div>
+		<div style="font-size:10px;"><input type="text" id="datepicker" placeholder="Date" name="datepicker" style="padding: 7px; height:23px; width:92%;"></input></div>
 		<br>
-		<div><button type="Set prefrences"; style= "margin-top: 3px; paddig-botton:1px; width:100%; border:hidden; color: rgba(255,255, 255,1.00 ); background: rgba(255,153,255,1.00 );"> &#8656    Set Prefrences</button>
-		</div>   
+		
   
-		<div style=" width: 92%; text-align:center; margin-botton:7px; padding:7px;"> Start Time  <select name="starthour">
+		<div style=" width: 92%; text-align:center; margin-botton:4px; padding:4px;"> Start Time  <select name="starthour">
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
@@ -171,7 +161,7 @@ $("#datepicker").datepicker("option", "dateFormat", $(this).val());
 		</select></div>
 
 
-		<div style="margin-botton:7px;  text-align:center; width: 92%; padding: 7px; ">End Time  
+		<div style="text-align:center; width: 92%; padding: 7px; ">End Time  
 		<select name="endhour">
 			<option value="1">1</option>
 			<option value="2">2</option>
@@ -200,12 +190,20 @@ $("#datepicker").datepicker("option", "dateFormat", $(this).val());
 		</select>  
 		</div>
 
-		<div style="margin-bottom:7px; font-size: 10px; color: rgba(243,144,146,1.00)"><textarea placeholder = "Event Description" name="eventdescription" style = "padding:7px; width: 92%; resize:none; rows:7;"></textarea></div>
+		<div style="m font-size: 10px; color: rgba(243,144,146,1.00)"><textarea placeholder = "Event Description" name="eventdescription" style = "padding:4px; width: 92%; resize:none; rows:7;"></textarea></div>
 
-		<div style="margin-bottom:7px; font-size: 10px;  color: rgba(255,255,255,1.00);"><input type = "text" placeholder = "Upload " style = "padding:7px;  width: 46%;"></input>
-		<input name ="21+" type="checkbox">21+</input>
-		<input name ="18+" type="checkbox">18+</input>
-		<div style="margin-bottom:7px; font-size: 10px;  color: rgba(255,255,255,1.00);">
+
+		<div style="margin-bottom:4px; font-size: 10px;  color: rgba(255,255,255,1.00);">
+
+        <select name="age" id="age" class="age">
+			<option value="all">All</option>
+            <option value="18">18+</option>
+            <option value="21">21+</option>
+           </select>
+        </div>
+
+	<!--Preference List-->
+        <div id="prefDiv" style="margin-bottom:4px; font-size: 10px;  color: rgba(255,255,255,1.00);">Who's Invited?<br>
 		<input type="checkbox" value="1" name="eventPreferences[]"> Music
 		</input></br>
 		<input type="checkbox" value="2" name="eventPreferences[]"> Food & Drinks
@@ -225,31 +223,59 @@ $("#datepicker").datepicker("option", "dateFormat", $(this).val());
 		<input type="checkbox" value="9" name="eventPreferences[]"> Entertainment
         </input></br>
 		</div>
-		<div><input type="text" name="long" value="long">
-		</div>
-		<div><input type="text" name="lat" value="lat">
-		</div>
-		<button type="button"; style="padding-top: 1px; paddig-botton:1px; width:42%; border:hiddene; border-width:1px; color: rgba(255,255, 255,1.00 ); background: rgba(255,153,255,1.00 ); ">Browse..</button>
-		</div>
+		<!--Old spot for lat long-->
 		<div style="text-align:center;"><form action=""><input type="checkbox">I agree to the Terms & Conditions
 		</input>
 		</form></div>
 		<br><br>
-		<div><button type="submit"; style= "padding-top: 1px; paddig-botton:1px; width:100%; color: rgba(255,255, 255,1.00 ); background: rgba(255,153,255,1.00 );">Create Event</button>   
-		</div>    
-		<!--END BRETT-->
-		</div>
-		<div></div>
+		<button type="submit"; style= "padding-top: 1px; paddig-botton:1px; width:100%; color: rgba(255,255, 255,1.00 ); background: rgba(255,153,255,1.00 );">Create Event</button>   
+		    
+	</div><!--Right Float div end -->
 	
-  	<div id="map"></div>
-    <script>
-      // This example adds a search box to a map, using the Google Place Autocomplete
-      // feature. People can enter geographical searches. The search box will return a
-      // pick list containing a mix of places and predicted search terms.
+<!--Left Float Div Start-->
+<div style ="font-size: 12px; position: absolute; height:100%;  border: 1px solid transparent; color:rgba(255,255,255,1.00); top: 50px; left: 10px; bottom: 30px; width: auto; z-index: 10; padding: 7px; border-radius: 2px; background: rgba(255,153,255,1.00 );">
+<div id="thirdPartyPullType" name="thirdPartyPullType" class="thirdPartyPullType">
+<select style="width:100%;" name="eventOptionType">
+	<option>All</option>
+    <option>Facebook</option>
+    <option>Google</option>
+    <option>LIV IT</option>
+</select>
+</div>
+<div id="thirdPartyPullListDiv" name="eventPullListBody" class="eventPullListBody">
+<table id="thirdPartyPulltable" align="center" style="text-align:center;">
+	<tbody>
+		<tr>
+			<td>
+	            <img src="img/lukebryanplaya.JPG" style="width:100px; height:100px"></img>
+            </td>
+			<td style="text-align:center;">
+            Event Name<br><br>
+            Event Location<br><br>
+            Start Date<br><br>
+            </td>
+        </tr>
+	</tbody>
+</table>
+</div>
+</div> <!--Left FLoat Div End-->
 
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+    
+    
+    
+    <!--Long/Lat Div-->
+    <div style="display:none;"><input type="text" name="long" value="long">
+		<input type="text" name="lat" value="lat">
+		</div>
+    <!--End lat/long-->
+    
+    <!--map div-->
+  	<div id="map"></div>
+    
+	
+	<script>
+     // People can enter geographical searches. The search box will return a
+      // pick list containing a mix of places and predicted search terms.
 
       function initAutocomplete() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -320,8 +346,8 @@ $("#datepicker").datepicker("option", "dateFormat", $(this).val());
 
     </script>	
 	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCkAik0mFJzy4vTrOP4IyfIGcO6vdX1odY&libraries=places&callback=initAutocomplete"async defer></script>
-</div>
-</form>
-</div>
+	</div><!--End Hero Div-->
+	</form><!-- End Form-->
+</div><!--End Container -->
 </body>
 </html>

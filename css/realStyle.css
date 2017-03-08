@@ -13,8 +13,7 @@ body {
 /* Container */
 .container {
 	width: 100%;
-	margin-left: auto;
-	margin-right: auto;
+	margin:0px;
 	height: 100%;
 	background-color: #FFFFFF;
 }
@@ -26,7 +25,7 @@ header {
 	line-height: 24px;
 	border-bottom: 1px solid #ff99ff;
 }
-.logo {
+.logo { 	
 	color: #ffffff;
 	font-weight: bold;
 	text-align: undefined;
@@ -34,16 +33,14 @@ header {
 	float: left;
 	vertical-align:middle;
 	line-height:24px;
-	margin-top: 15px;
-	
-	margin-left: 25px;
+	padding:1%;
 	letter-spacing: 4px;
 }
 nav {
 	float: right;
-	width: 50%;
+	width: 50%;	
 	text-align: right;
-	margin-right: 25px;
+	margin-right: 0px;
 }
 header nav ul {
 	list-style: none;
@@ -88,7 +85,6 @@ nav2 ul li {
 	letter-spacing: 2px;
 	font-weight: bold;
 	transition: all 0.3s linear;
-	overflow:
 }
 
 nav3 {
@@ -132,19 +128,242 @@ nav3 ul li {
 .map{
 	height:100%;
 	width:100%;
+	margin:0px;
 }
 
 .herro {
 	height: 100%;
-	width:100;
+	width:100%;
 	background-color: #ffffff;
 	margin: 0px;
 	padding: 0px;
 }
+
+.uploader {
+    position:relative; 
+    overflow:hidden; 
+    width:98%; 
+    height:50px;
+    background:#ff99ff; 
+	margin-bottom: 4px;
+    border:2px dashed #e8e8e8;
+}
+
+#filePhoto{
+    position:absolute;
+    width:92%;
+    height:100px;
+    top:-50px;
+    left:0;
+    z-index:2;
+	margin-bottom: 4px;
+    opacity:0;
+    cursor:pointer;
+}
+
+.uploader img{
+    position:absolute;
+    width:92%;
+    height:100px;
+    top:-1px;
+	margin-bottom: 4px;
+    left:-1px;
+    z-index:1;
+    border:none;
+}
+/*
+.checkbox{
+	background-color:f #ff99ff;	
+
+}
+
+.checkbox:active{
+		background-color:f #ff99ff;
+}
+*/
+/*
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox] + label {
+    display: inline-block;
+    position: relative;
+    padding: 6px;
+    background-color: fff99ff;
+    border: 1px solid white;  border of the checkbox 
+    border-radius: 3px
+}
+
+input[type=checkbox]:checked + label {
+    background-color: ff99; whatever you want the background color of the box to be 
+	color: white;
+}
+
+input[type=checkbox]:checked + label:after {	
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    color: white; /Color of the checkmark 
+    content: '\2714';  This is a "heavy" checkmark. Change to 2713 for a light one. 
+    font-size: 10px;
+} 
+*/
+
+/* review section*/
+.hero_review {
+	height: 100%;
+	width:100%;
+	background-color: #ffffff;
+	margin: 0px;
+	padding: 0px;
+}
+
+
+.publishButton{
+  margin-right:10px;
+  width:100px;
+  background:#ff99ff;
+  border-bottom:#B50599 3px solid;
+  border-left: #B50599 1px solid;
+  border-right: #B50599 1px solid;
+  border-radius:6px;
+  text-align:center;
+  color:white;
+  padding:10px;
+  float:left;
+  font-size:12px;
+  font-weight:800;
+}
+
+.publishButton:hover{
+ opacity:0.8; 
+}
+
+.publishButton:active{
+  width:100px;
+  background:#ff99ff;
+  border-bottom: #16a085 1px solid;
+  border-left: #16a085 1px solid;
+  border-right: #16a085 1px solid;
+  border-radius:6px;
+  text-align:center;
+  color:white;
+  padding:10px;
+  margin-top:3px;
+  float:left;
+}
+
+
+.editButton{
+  margin-right:10px;
+  width:100px;
+  background:#ff99ff;
+  border-bottom: #2980b9 3px solid;
+  border-left: #2980b9 1px solid;
+  border-right: #2980b9 1px solid;
+  border-radius:6px;
+  text-align:center;
+  color:white;
+  padding:10px;
+  float:left; 
+  font-size:12px;
+  font-weight:800;
+}
+
+.editButton:hover{
+ opacity:0.8; 
+}
+
+.editButton:active{
+  width:100px;
+  background:#2385C7;
+  border-bottom: #2980b9 1px solid;
+  border-left: #2980b9 1px solid;
+  border-right: #2980b9 1px solid;
+  border-radius:6px;
+  text-align:center;
+  color:white;
+  padding:10px;
+  margin-top:3px;
+  float:left;
+}
+
+.delete{
+  margin-right:10px;
+  width:100px;
+  background:#ff99ff;
+  border-bottom: #2c3e50 3px solid;
+  border-left: #2c3e50 1px solid;
+  border-right: #2c3e50 1px solid;
+  border-radius:6px;
+  text-align:center;
+  color:white;
+  padding:10px;
+  float:left;
+  font-size:12px;
+  font-weight:800;
+}
+
+.delete:hover{
+ opacity:0.8; 
+}
+
+.delete:active{
+  width:100px;
+  background:#2D3F51;
+  border-bottom: #2c3e50 1px solid;
+  border-left: #2c3e50 1px solid;
+  border-right: #2c3e50 1px solid;
+  border-radius:6px;
+  text-align:center;
+  color:white;
+  padding:10px;
+  margin-top:3px;
+  float:left;
+}
+
+.canel{
+  margin-right:10px;
+  width:100px;
+  background:#ff99ff;
+  border-bottom: #f39c12 3px solid;
+  border-left: #f39c12 1px solid;
+  border-right: #f39c12 1px solid;
+  border-radius:6px;
+  text-align:center;
+  color:white;
+  padding:10px;
+  float:left; 
+  font-size:12px;
+  font-weight:800;
+}
+
+.canel:hover{
+ opacity:0.8; 
+}
+
+.canel:active{
+  width:100px;
+  background:#DAB10E;
+  border-bottom: #f39c12 1px solid;
+  border-left: #f39c12 1px solid;
+  border-right: #f39c12 1px solid;
+  border-radius:6px;
+  text-align:center;
+  color:white;
+  padding:10px;
+  margin-top:3px;
+  float:left;
+}
+
+
+
+
 /*Manage Page*/
 .manageHero {
 	height: 100%;
-	width:100;
+	width:100%;
 	background-color: #ffffff;
 	margin: 0px;
 	padding: 0px;
@@ -373,12 +592,13 @@ nav ul li {
 	line-height: 22px;
 }
 .hero_header {
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
 	line-height: 22px;
 	text-align: center;
 }
-}
+
+
 
 /* Small Tablets */
 @media (min-width: 321px)and (max-width: 767px) {
